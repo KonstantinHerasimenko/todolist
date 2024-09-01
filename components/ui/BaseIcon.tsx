@@ -16,7 +16,7 @@ const BaseIcon = forwardRef<HTMLSpanElement, BaseIconProps>(
       <span ref={forwardedRef} className={cn('grid', className)}>
         {label && <span className="sr-only">{label}</span>}
         <Component
-          className="size-full fill-current"
+          className="size-full fill-none"
           aria-hidden={true}
           focusable={false}
           {...props}
