@@ -2,16 +2,17 @@
 
 import Image from 'next/image'
 import { cn } from '@/utils/css'
-import { ChevronDown, CircleUserRound} from 'lucide-react'
+import { ChevronDown, CircleUserRound } from 'lucide-react'
 import { useState } from 'react'
-import plus from "@/assets/plus.svg"
-import pencil from "@/assets/pencil.svg"
-import trash from "@/assets/trash-2.svg"
-import logo from "@/assets/logo.svg"
+import plus from '@/assets/plus.svg'
+import pencil from '@/assets/pencil.svg'
+import trash from '@/assets/trash-2.svg'
+import logo from '@/assets/logo.svg'
 import BaseIcon from '../ui/BaseIcon'
+import Link from 'next/link'
 
 export default function Toolbar() {
-	const [isToolsHidden, setIsToolsHidden] = useState(true)
+	const [isToolsHidden, setIsToolsHidden] = useState(false)
 
 	const toggleToolsMenu = () => {
 		setIsToolsHidden(prev => !prev)
@@ -35,13 +36,13 @@ export default function Toolbar() {
 						<h3 className="text-body-1 capitalize">instruments</h3>
 						<ChevronDown className={cn(!isToolsHidden && 'rotate-180', 'duration-300 ease-in-out')} />
 					</button>
-					<button className={cn('bg-grim-purple px-4 py-3 rounded-md', 'flex items-center gap-5')}>
+					<Link href={"/signUp"} className={cn('bg-grim-purple px-4 py-3 rounded-md', 'flex items-center gap-5')}>
 						<CircleUserRound />
 						<h3 className="text-body-1 capitalize">profile</h3>
-					</button>
+					</Link>
 				</div>
 			</nav>
-			<section className={cn(!isToolsHidden ? 'top-0' : 'top-full', 'absolute', 'w-full px-10 py-5 bg-grim-purple', 'duration-300 ease-in-out', 'flex justify-between')}>
+			<section className={cn(isToolsHidden ? 'top-0' : 'top-full', 'absolute', 'w-full px-10 py-5 bg-grim-purple', 'duration-300 ease-in-out', 'flex justify-between')}>
 				<div
 					role="group"
 					className="flex gap-10">
